@@ -1,0 +1,17 @@
+= Grails Advanced Config Plugin
+Ecgeny Smirnov - Version: {version}
+
+:source-highlighter: coderay
+:numbered:
+
+[[introduction]]
+include::introduction.adoc[]
+
+[[gettingStarted]]
+include::gettingStarted.adoc[]
+
+[[fileTypes]]
+include::fileTypes.adoc[]
+
+[[configuration]]
+include::configuration.adoc[]

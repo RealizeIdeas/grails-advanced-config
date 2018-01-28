@@ -1,0 +1,10 @@
+== File types
+
+Plugin support following input file formats:
+
+* .yml
+* .groovy
+* .json
+* .xml
+
+Output file format - yml

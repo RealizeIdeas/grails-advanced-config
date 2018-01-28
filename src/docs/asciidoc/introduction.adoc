@@ -1,0 +1,9 @@
+== Introduction
+
+Grails Advanced Config is a small gradle plugin built to provide more flexible and efficient work with global config.
+
+*Key features:*
+
+1. Use separate config files
+2. Use different config file formats(yml, groovy, json, xml)
+3. Easy create new environments

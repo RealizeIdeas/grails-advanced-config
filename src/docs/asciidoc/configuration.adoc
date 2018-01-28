@@ -1,0 +1,13 @@
+== Configuration
+
+You may configure input files in *build.gradle*:
+
+[source,groovy]
+----
+advancedConfig {
+   configFiles = files(
+        'grails-app/conf/config1.yml',
+        'grails-app/conf/config2.yml',
+   ) as List
+}
+----

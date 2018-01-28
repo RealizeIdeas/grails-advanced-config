@@ -1,0 +1,46 @@
+== Getting Started
+
+*The first step is to add a dependency for the plugin in `build.gradle`:*
+
+[source,groovy,subs="attributes"]
+----
+buildscript {
+   dependencies {
+      ...
+      classpath '{groupId}:{artifactId}:{version}'
+   }
+}
+
+apply plugin: '{groupId}:{artifactId}'
+----
+
+*Default config*
+
+By default all configuration files must be under *grails-app/conf/configurations/common* directory.
+
+Environment specific files must be places under *grails-app/conf/configurations/${grails.env}* dirs.
+
+
+Config structure example:
+
+[source]
+----
+grails-app
+`--conf
+   `--configurations
+      |-- common
+      |   |-- datasource.yml
+      |   |-- grails.yml
+      |   `-- springsecurity.groovy
+      |-- development
+      |   |-- datasource.yml
+      |   `-- development.yml
+      `-- production
+          |-- datasource.yml
+          |-- productionconfig.yml
+          `-- oauth
+              |--google
+              |  `--settings.xml
+              `--facebook
+                 `--settings.xml
+----
