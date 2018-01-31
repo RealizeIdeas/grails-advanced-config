@@ -4,14 +4,17 @@ buildscript {
     }
     dependencies {
         classpath 'org.asciidoctor:asciidoctor-gradle-plugin:1.5.6'
+        classpath "com.jfrog.bintray.gradle:gradle-bintray-plugin:1.7.3"
     }
 }
 
-version '1.0.SNAPSHOT'
+version '1.0-SNAPSHOT'
 group 'net.realizeideas'
 
 apply plugin: 'groovy'
 apply plugin: 'org.asciidoctor.convert'
+apply plugin: 'com.jfrog.bintray'
+apply plugin: 'maven-publish'
 
 repositories {
     mavenLocal()
@@ -27,7 +30,33 @@ dependencies {
 }
 
 asciidoctor {
-    attributes  'version'       : project.version,
-                'groupId'       : project.group,
-                'artifactId'    : project.name
+    attributes 'version': project.version,
+            'groupId': project.group,
+            'artifactId': project.name
+}
+
+bintray {
+    user = System.getenv('BINTRAY_USER')
+    key = System.getenv('BINTRAY_KEY')
+    publications = ['maven']
+    pkg {
+        repo = 'grails-advanced-config'
+        name = 'net.realizeideas'
+        desc = 'Grails Advanced Config Plugin'
+        userOrg = 'realizeideas'
+        licenses = ['Apache-2.0']
+        vcsUrl = 'https://github.com/RealizeIdeas/grails-advanced-config.git'
+        issueTrackerUrl = 'https://github.com/RealizeIdeas/grails-advanced-config/issues'
+    }
+}
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            from components.java
+            groupId 'net.realizeideas'
+            artifactId 'grails-advanced-config'
+            version '1.0-SNAPSHOT'
+        }
+    }
 }
