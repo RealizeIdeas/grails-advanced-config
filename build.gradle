@@ -40,7 +40,7 @@ bintray {
     key = System.getenv('BINTRAY_KEY')
     publications = ['maven']
     pkg {
-        repo = 'plugins'
+        repo = 'grails-plugins'
         name = project.name
         desc = 'Grails Advanced Config Plugin'
         licenses = ['Apache-2.0']
@@ -56,9 +56,9 @@ bintray {
 publishing {
     publications {
         maven(MavenPublication) {
-            from components.java
+            artifactId project.name
             groupId 'net.realizeideas'
-            artifactId 'grails-advanced-config'
+            from components.java
         }
     }
 }
