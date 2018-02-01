@@ -8,7 +8,7 @@ buildscript {
     }
 }
 
-version '1.0-SNAPSHOT'
+version '1.0'
 group 'net.realizeideas'
 
 apply plugin: 'groovy'
@@ -40,13 +40,16 @@ bintray {
     key = System.getenv('BINTRAY_KEY')
     publications = ['maven']
     pkg {
-        repo = 'grails-advanced-config'
-        name = 'net.realizeideas'
+        repo = 'plugins'
+        name = project.name
         desc = 'Grails Advanced Config Plugin'
-        userOrg = 'realizeideas'
         licenses = ['Apache-2.0']
         vcsUrl = 'https://github.com/RealizeIdeas/grails-advanced-config.git'
         issueTrackerUrl = 'https://github.com/RealizeIdeas/grails-advanced-config/issues'
+        version {
+            attributes = ['grails-plugin': "$project.group:$project.name"]
+            name = project.version
+        }
     }
 }
 
@@ -56,7 +59,6 @@ publishing {
             from components.java
             groupId 'net.realizeideas'
             artifactId 'grails-advanced-config'
-            version '1.0-SNAPSHOT'
         }
     }
 }
